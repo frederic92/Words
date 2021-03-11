@@ -54,7 +54,7 @@ class WordAdapter(private val letterId: String, context: Context) :
     }
 
     class WordViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val button = view.findViewById<Button>(R.id.button_item)
+        val button : Button = view.findViewById<Button>(R.id.button_item)
     }
 
     override fun getItemCount(): Int = filteredWords.size
@@ -86,7 +86,7 @@ class WordAdapter(private val letterId: String, context: Context) :
         holder.button.text = item
 
         holder.button.setOnClickListener {
-            val queryUrl: Uri = Uri.parse("${DetailActivity.SEARCH_PREFIX}${item}")
+            val queryUrl: Uri = Uri.parse("${WordListFragment.SEARCH_PREFIX}${item}")
             val intent = Intent(Intent.ACTION_VIEW, queryUrl)
             context.startActivity(intent)
         }
